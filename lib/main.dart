@@ -1,4 +1,7 @@
+import 'package:emart_app/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart'
+    show GetMaterialApp;
 import 'consts/consts.dart';
 
 void main() {
@@ -10,9 +13,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    //we are using getX so we have to change this material app into getmaterialapp
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: appname,
-      theme: ThemeData(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.transparent,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+        ),
+        fontFamily: regular,
+      ),
+      home: const SplashScreen(),
     );
   }
 }
